@@ -1,3 +1,4 @@
+pipeline {
 podTemplate(
     label: 'mypod',
     volumes: [
@@ -10,8 +11,7 @@ podTemplate(
         containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true)
     ]
 )
-{
-    node('mypod') {
+node('mypod') {
         stage('Clone repository') {
             container('git') {
                 sh 'https://github.com/raxkson/kisec.git /etc/gitrepo'
