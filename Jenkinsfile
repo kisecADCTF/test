@@ -1,4 +1,3 @@
-
 podTemplate(
     label: 'mypod',
     volumes : [
@@ -7,8 +6,8 @@ podTemplate(
     ] ,
     containers :
             [
-                containerTemplate(name:'git', image : 'alpine/git', ttyEnabled : true, command : 'cat'),
-                containerTemplate(name:'docker', image : 'docker', command : 'cat', ttyEnabled : true)
+                containerTemplate(name:'git', image : 'alpine/git', ttyEnabled : true, command : 'echo 'nameserver 8.8.8.8' >> /etc/resolv.conf'),
+                containerTemplate(name:'docker', image : 'docker', command : 'echo 'nameserver 8.8.8.8' >> /etc/resolv.conf', ttyEnabled : true)
             ]
         ) {
     node('mypod') {
