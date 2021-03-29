@@ -20,10 +20,10 @@ podTemplate(
         stage('Build and push docker image and remove image') {
             container('docker') {
 	       sh "echo 'nameserver 8.8.8.8' >> /etc/resolv.conf"
-                    sh 'docker build /etc/gitrepo -t kisec/PHP --no-cache'
-                    sh 'docker tag kisec/PHP myreg:30500'
-                    sh 'docker push myreg:30500/kisec/PHP'
-                    sh 'docker rmi kisec/PHP myreg:30500/kisec/PHP'
+                    sh 'docker build /etc/gitrepo -t kisec/php --no-cache'
+                    sh 'docker tag kisec/php myreg:30500'
+                    sh 'docker push myreg:30500/kisec/php'
+                    sh 'docker rmi kisec/php myreg:30500/kisec/php'
             }
         }
     }
