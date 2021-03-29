@@ -21,10 +21,9 @@ podTemplate(
             container('docker') {
 	       sh "echo 'nameserver 8.8.8.8' >> /etc/resolv.conf"
 	       sh 'ls /etc/gitrepo'
-                    sh 'docker build /etc/gitrepo/php -t test-php --no-cache'
-                    sh 'docker tag test-php myreg:30500'
-                    sh 'docker push myreg:30500/test-php'
-                    sh 'docker rmi kisec/php myreg:30500/test-php'
+                    sh 'docker build /etc/gitrepo/php -t test-php2 --no-cache'
+                    sh 'docker tag test-php2 myreg:30500'
+                    sh 'docker push myreg:30500/test-php2'
             }
         }
     }
