@@ -19,7 +19,7 @@ podTemplate(
         }
         stage('Build and push docker image and remove image') {
             container('docker') {
-                    sh 'docker build /etc/gitrepo/ -t test-php kisec/PHP/. --no-cache'
+                    sh 'docker build -t test-php /etc/gitrepo/kisec/PHP/. --no-cache'
                     sh 'docker tag test-php myreg:30500'
                     sh 'docker push myreg:30500/test-php'
                     sh 'docker rmi test-php myreg:30500/test-php'
