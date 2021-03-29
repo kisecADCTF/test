@@ -6,14 +6,14 @@ podTemplate(
     ] ,
     containers :
             [
-                containerTemplate(name:'git', image : 'alpine/git', ttyEnabled : true, command : "cat"),
-                containerTemplate(name:'docker', image : 'docker', ttyEnabled : true, command : "cat")
+                containerTemplate(name:'git', image : 'alpine/git', ttyEnabled : true, command : 'cat'),
+                containerTemplate(name:'docker', image : 'docker', ttyEnabled : true, command : 'cat')
             ]
         ) {
     node('mypod') {
         stage('Clone repository') {
             container('git') {
-                sh 'https://github.com/raxkson/kisec.git /etc/gitrepo'
+                sh 'git clone https://github.com/raxkson/kisec.git /etc/gitrepo'
             }
         }
         stage('Build and push docker image and remove image') {
