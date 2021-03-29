@@ -23,7 +23,7 @@ podTemplate(
 	       sh 'ls /etc/gitrepo'
                     sh 'docker build /etc/gitrepo/php -t test-php2 --no-cache'
                     sh 'docker tag test-php2 myreg:30500'
-                    sh 'docker push myreg:30500/test-php2'
+                    sh 'docker push test-php2'
             }
         }
     }
