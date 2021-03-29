@@ -21,9 +21,10 @@ podTemplate(
             container('docker') {
 	       sh "echo 'nameserver 8.8.8.8' >> /etc/resolv.conf"
 	       sh 'ls /etc/gitrepo'
+	       sh "echo '127.0.0.1 myreg' >> /etc/hosts"
                     sh 'docker build /etc/gitrepo/php -t test-php2 --no-cache'
                     sh 'docker tag test-php2 myreg:30500'
-	      sh 'docker login 10.96.119.135:5000 -u raxkson -p kisec1234'
+	      sh 'docker login myreg:30500 -u raxkson -p kisec1234'
                     sh 'docker push test-php2'
             }
         }
