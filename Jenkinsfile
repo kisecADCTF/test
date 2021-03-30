@@ -26,7 +26,7 @@ podTemplate(
                 sh 'docker tag test-php2 myreg:30500/test-php2'
 				sh 'docker logout'
 				sh 'docker login myreg:30500 -u raxkson -p kisec1234'
-                    sh 'docker push test-php2'
+                    sh 'docker push myreg:30500/test-php2'
             }
         }
     }
