@@ -9,6 +9,7 @@ node {
     
     stage('Clone repository') {
         try {
+		echo ${BRANCH}
         sh 'git clone http://github.com/raxkson/' + git_repo
         }
         catch (e) {
